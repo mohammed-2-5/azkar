@@ -72,20 +72,22 @@ See `AGENTS.md` and `docs/ROADMAP.md` for conventions and upcoming milestones.
 
 ## Automated screenshots
 
-A simple integration test in `integration_test/screenshot_test.dart` renders the main tabs and saves PNGs under `assets/screenshots/`.
+A simple integration test in `integration_test/screenshot_test.dart` renders the main tabs and captures PNGs on an emulator or physical device.
 
 ```bash
-# Specify a device (desktop/web/emulator) to generate screenshots
-flutter test integration_test/screenshot_test.dart -d windows
+# Run on a connected Android emulator or device
+flutter test integration_test/screenshot_test.dart -d emulator-5554
+
+# Pull the generated images back into the repo
+adb pull /sdcard/Android/data/com.example.azkar/files/azkar-screenshots assets/screenshots
 ```
 
 The test:
-- Mocks the location onboarding flag so the app skips the permission gate
-- Pumps the real `AzkarRoot` widget inside a `Screenshot` controller
-- Navigates the bottom navigation bar (Prayer → Qiblah → Qur’an → Azkar)
-- Writes PNG files (e.g., `assets/screenshots/prayer_home.png`)
+- Mocks the location onboarding flag so the permission gate is skipped.
+- Pumps the real `AzkarRoot` and navigates the bottom navigation bar (Prayer → Qiblah → Qur’an → Azkar).
+- Saves PNGs via `ScreenshotController` to `Android/data/com.example.azkar/files/azkar-screenshots`.
 
-Commit the updated PNGs to keep documentation/demo assets current.
+Rename the pulled files (e.g., `prayer_times.png`, `qibla.png`) and commit them so the gallery stays up to date.
 
 ---
 
