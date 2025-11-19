@@ -93,31 +93,63 @@ Commit the updated PNGs to keep documentation/demo assets current.
 
 <table>
   <tr>
-    <td align="center" width="33%">
-      <img src="assets/screenshots/img.png" alt="Prayer overview" width="220">
-      <p><strong>Prayer Overview</strong><br/>Next prayer countdown, countdown cards, and quick actions.</p>
+    <td align="center" width="25%">
+      <img src="assets/screenshots/img.png" alt="Prayer timeline" width="200">
+      <p><strong>Prayer Timeline</strong><br/>Full-day overview, countdown timer, and quick location banner.</p>
     </td>
-    <td align="center" width="33%">
-      <img src="assets/screenshots/img_3.png" alt="Notification settings" width="220">
-      <p><strong>Notification Controls</strong><br/>Per-prayer lead times, snooze, and quiet hours.</p>
+    <td align="center" width="25%">
+      <img src="assets/screenshots/img_1.png" alt="Prayer header widgets" width="200">
+      <p><strong>Prayer Cards</strong><br/>Boxed countdowns, snooze availability, and compass summaries.</p>
     </td>
-    <td align="center" width="33%">
-      <img src="assets/screenshots/img_5.png" alt="Qiblah compass" width="220">
-      <p><strong>Qiblah Compass</strong><br/>Live heading guidance with calibration tips.</p>
+    <td align="center" width="25%">
+      <img src="assets/screenshots/img_2.png" alt="Prayer grid" width="200">
+      <p><strong>Prayer Grid</strong><br/>Daily timetable with per-prayer info and tap targets.</p>
+    </td>
+    <td align="center" width="25%">
+      <img src="assets/screenshots/img_3.png" alt="Notification settings" width="200">
+      <p><strong>Notification Controls</strong><br/>Lead times, per-prayer overrides, and diagnostics shortcut.</p>
     </td>
   </tr>
   <tr>
-    <td align="center" width="33%">
-      <img src="assets/screenshots/img_7.png" alt="Quran reader" width="220">
-      <p><strong>Quran Reader</strong><br/>Scroll, jump, and view translations within the Mushaf layout.</p>
+    <td align="center" width="25%">
+      <img src="assets/screenshots/img_4.png" alt="Lead time overrides" width="200">
+      <p><strong>Lead Overrides</strong><br/>Dropdown per prayer, along with quiet-hour sliders.</p>
     </td>
-    <td align="center" width="33%">
-      <img src="assets/screenshots/img_9.png" alt="Azkar hub" width="220">
-      <p><strong>Azkar Hub</strong><br/>Curated adhkar categories with quick filters.</p>
+    <td align="center" width="25%">
+      <img src="assets/screenshots/img_5.png" alt="Snooze and voice preview" width="200">
+      <p><strong>Snooze & Voice</strong><br/>Snooze duration, adhan selector, and preview buttons.</p>
     </td>
-    <td align="center" width="33%">
-      <img src="assets/screenshots/img_12.png" alt="Appearance controls" width="220">
-      <p><strong>Appearance & Diagnostics</strong><br/>Theme palettes, typography preview, and telemetry toggle.</p>
+    <td align="center" width="25%">
+      <img src="assets/screenshots/img_6.png" alt="Notification actions" width="200">
+      <p><strong>Notification Actions</strong><br/>Schedule tests, instant notifications, and live reschedule.</p>
+    </td>
+    <td align="center" width="25%">
+      <img src="assets/screenshots/img_7.png" alt="Qiblah compass" width="200">
+      <p><strong>Qiblah Compass</strong><br/>Compass overlay with calibration tips and delta guidance.</p>
+    </td>
+  </tr>
+  <tr>
+    <td align="center" width="25%">
+      <img src="assets/screenshots/img_8.png" alt="Quran reader" width="200">
+      <p><strong>Quran Reader</strong><br/>Mushaf layout with quick jump options and markers.</p>
+    </td>
+    <td align="center" width="25%">
+      <img src="assets/screenshots/img_9.png" alt="Azkar hub" width="200">
+      <p><strong>Azkar Hub</strong><br/>Entry point into adhkar, hadith, and forty collections.</p>
+    </td>
+    <td align="center" width="25%">
+      <img src="assets/screenshots/img_10.png" alt="Collection cards" width="200">
+      <p><strong>Collection Cards</strong><br/>Reusable cards for hadith/forties with counts and quick actions.</p>
+    </td>
+    <td align="center" width="25%">
+      <img src="assets/screenshots/img_11.png" alt="Hadith reader" width="200">
+      <p><strong>Collection Reader</strong><br/>Scrollable entries with favourites and narration details.</p>
+    </td>
+  </tr>
+  <tr>
+    <td align="center" width="25%">
+      <img src="assets/screenshots/img_12.png" alt="Appearance controls" width="200">
+      <p><strong>Appearance & Telemetry</strong><br/>Theme seeds, typography slider, and diagnostics toggle/logs.</p>
     </td>
   </tr>
 </table>
