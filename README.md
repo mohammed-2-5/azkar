@@ -1,4 +1,4 @@
-# Azkar
+# Azkar ![App Logo](assets/azkar_logo.png)
 
 Azkar is a cross-platform Flutter companion for daily adhkar, Qur’an reading, curated hadith collections, prayer schedules, Qiblah direction, appearance controls, and diagnostics tooling. The codebase follows a feature-first structure with strong localization and telemetry support.
 
@@ -86,6 +86,41 @@ The test:
 - Writes PNG files (e.g., `assets/screenshots/prayer_home.png`)
 
 Commit the updated PNGs to keep documentation/demo assets current.
+
+---
+
+## UI Gallery
+
+<table>
+  <tr>
+    <td align="center" width="33%">
+      <img src="assets/screenshots/img.png" alt="Prayer overview" width="220">
+      <p><strong>Prayer Overview</strong><br/>Next prayer countdown, countdown cards, and quick actions.</p>
+    </td>
+    <td align="center" width="33%">
+      <img src="assets/screenshots/img_3.png" alt="Notification settings" width="220">
+      <p><strong>Notification Controls</strong><br/>Per-prayer lead times, snooze, and quiet hours.</p>
+    </td>
+    <td align="center" width="33%">
+      <img src="assets/screenshots/img_5.png" alt="Qiblah compass" width="220">
+      <p><strong>Qiblah Compass</strong><br/>Live heading guidance with calibration tips.</p>
+    </td>
+  </tr>
+  <tr>
+    <td align="center" width="33%">
+      <img src="assets/screenshots/img_7.png" alt="Quran reader" width="220">
+      <p><strong>Quran Reader</strong><br/>Scroll, jump, and view translations within the Mushaf layout.</p>
+    </td>
+    <td align="center" width="33%">
+      <img src="assets/screenshots/img_9.png" alt="Azkar hub" width="220">
+      <p><strong>Azkar Hub</strong><br/>Curated adhkar categories with quick filters.</p>
+    </td>
+    <td align="center" width="33%">
+      <img src="assets/screenshots/img_12.png" alt="Appearance controls" width="220">
+      <p><strong>Appearance & Diagnostics</strong><br/>Theme palettes, typography preview, and telemetry toggle.</p>
+    </td>
+  </tr>
+</table>
 
 ---
 
