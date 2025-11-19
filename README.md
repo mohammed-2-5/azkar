@@ -94,62 +94,62 @@ Commit the updated PNGs to keep documentation/demo assets current.
 <table>
   <tr>
     <td align="center" width="25%">
-      <img src="assets/screenshots/img.png" alt="Prayer timeline" width="200">
-      <p><strong>Prayer Timeline</strong><br/>Full-day overview, countdown timer, and quick location banner.</p>
+      <img src="assets/screenshots/splash.png" alt="Animated splash screen" width="200">
+      <p><strong>Launch Splash</strong><br/>Warm welcome with the Azkar identity before onboarding.</p>
     </td>
     <td align="center" width="25%">
-      <img src="assets/screenshots/img_1.png" alt="Prayer header widgets" width="200">
-      <p><strong>Prayer Cards</strong><br/>Boxed countdowns, snooze availability, and compass summaries.</p>
+      <img src="assets/screenshots/prayer_times.png" alt="Prayer times home" width="200">
+      <p><strong>Prayer Home</strong><br/>Today’s schedule, next-prayer countdown, and location banner.</p>
     </td>
     <td align="center" width="25%">
-      <img src="assets/screenshots/img_2.png" alt="Prayer grid" width="200">
-      <p><strong>Prayer Grid</strong><br/>Daily timetable with per-prayer info and tap targets.</p>
+      <img src="assets/screenshots/notification_settings.png" alt="Notification sheet" width="200">
+      <p><strong>Notification Sheet</strong><br/>Per-prayer lead times, quiet hours, snooze, and diagnostics link.</p>
     </td>
     <td align="center" width="25%">
-      <img src="assets/screenshots/img_3.png" alt="Notification settings" width="200">
-      <p><strong>Notification Controls</strong><br/>Lead times, per-prayer overrides, and diagnostics shortcut.</p>
-    </td>
-  </tr>
-  <tr>
-    <td align="center" width="25%">
-      <img src="assets/screenshots/img_4.png" alt="Lead time overrides" width="200">
-      <p><strong>Lead Overrides</strong><br/>Dropdown per prayer, along with quiet-hour sliders.</p>
-    </td>
-    <td align="center" width="25%">
-      <img src="assets/screenshots/img_5.png" alt="Snooze and voice preview" width="200">
-      <p><strong>Snooze & Voice</strong><br/>Snooze duration, adhan selector, and preview buttons.</p>
-    </td>
-    <td align="center" width="25%">
-      <img src="assets/screenshots/img_6.png" alt="Notification actions" width="200">
-      <p><strong>Notification Actions</strong><br/>Schedule tests, instant notifications, and live reschedule.</p>
-    </td>
-    <td align="center" width="25%">
-      <img src="assets/screenshots/img_7.png" alt="Qiblah compass" width="200">
-      <p><strong>Qiblah Compass</strong><br/>Compass overlay with calibration tips and delta guidance.</p>
+      <img src="assets/screenshots/settings.png" alt="Appearance and telemetry" width="200">
+      <p><strong>Appearance & Telemetry</strong><br/>Theme seeds, typography preview, telemetry toggle/log viewer.</p>
     </td>
   </tr>
   <tr>
     <td align="center" width="25%">
-      <img src="assets/screenshots/img_8.png" alt="Quran reader" width="200">
-      <p><strong>Quran Reader</strong><br/>Mushaf layout with quick jump options and markers.</p>
+      <img src="assets/screenshots/qibla.png" alt="Qiblah compass" width="200">
+      <p><strong>Qiblah Compass</strong><br/>Live heading, calibration tips, and alignment status.</p>
     </td>
     <td align="center" width="25%">
-      <img src="assets/screenshots/img_9.png" alt="Azkar hub" width="200">
-      <p><strong>Azkar Hub</strong><br/>Entry point into adhkar, hadith, and forty collections.</p>
+      <img src="assets/screenshots/quran_tiles.png" alt="Quran tiles view" width="200">
+      <p><strong>Qur’an Tiles</strong><br/>Browse surahs with quick actions and navigation.</p>
     </td>
     <td align="center" width="25%">
-      <img src="assets/screenshots/img_10.png" alt="Collection cards" width="200">
-      <p><strong>Collection Cards</strong><br/>Reusable cards for hadith/forties with counts and quick actions.</p>
+      <img src="assets/screenshots/quran_reader_pages.png" alt="Quran Mushaf reader" width="200">
+      <p><strong>Mushaf Reader</strong><br/>Page layout with scroll and marker support.</p>
     </td>
     <td align="center" width="25%">
-      <img src="assets/screenshots/img_11.png" alt="Hadith reader" width="200">
-      <p><strong>Collection Reader</strong><br/>Scrollable entries with favourites and narration details.</p>
+      <img src="assets/screenshots/quran_sura.png" alt="Surah reader" width="200">
+      <p><strong>Surah Reader</strong><br/>Detailed view with translation/tafseer hooks.</p>
     </td>
   </tr>
   <tr>
     <td align="center" width="25%">
-      <img src="assets/screenshots/img_12.png" alt="Appearance controls" width="200">
-      <p><strong>Appearance & Telemetry</strong><br/>Theme seeds, typography slider, and diagnostics toggle/logs.</p>
+      <img src="assets/screenshots/azkar_main.png" alt="Azkar hub" width="200">
+      <p><strong>Azkar Hub</strong><br/>Jump into adhkar, hadith, or forty collections.</p>
+    </td>
+    <td align="center" width="25%">
+      <img src="assets/screenshots/the azkar.png" alt="Azkar listing" width="200">
+      <p><strong>Azkar Listing</strong><br/>Filter morning/evening cards with counts.</p>
+    </td>
+    <td align="center" width="25%">
+      <img src="assets/screenshots/hadith_books.png" alt="Hadith collections" width="200">
+      <p><strong>Hadith Collections</strong><br/>Browse canonical books with quick stats.</p>
+    </td>
+    <td align="center" width="25%">
+      <img src="assets/screenshots/hadith_item.png" alt="Hadith entry" width="200">
+      <p><strong>Hadith Entry</strong><br/>Detailed narration with Arabic/English text and favourites.</p>
+    </td>
+  </tr>
+  <tr>
+    <td align="center" width="25%">
+      <img src="assets/screenshots/fourti.png" alt="Forties" width="200">
+      <p><strong>Forty Collections</strong><br/>Curated sets like Nawawi/qudsi with quick access cards.</p>
     </td>
   </tr>
 </table>
