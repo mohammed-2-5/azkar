@@ -216,6 +216,7 @@ class _MosqueFramePainter extends CustomPainter {
   const _MosqueFramePainter({required this.color});
   final Color color;
 
+
   @override
   void paint(Canvas canvas, Size size) {
     final paint = Paint()
