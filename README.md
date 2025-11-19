@@ -192,4 +192,9 @@ Only merge changes once the workflow passes.
 Telemetry is opt-in; respect user privacy by never collecting PII or uploading logs automatically.
 
 Happy building!
-\n## Automated screenshots (WIP)\n
+
+---
+
+## Credits
+
+Built by **Eng. Mohammed Yasser – Flutter Developer**, with a focus on localization, accessibility, and cross-platform polish.
