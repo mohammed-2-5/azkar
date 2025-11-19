@@ -15,28 +15,45 @@ class CalcChips extends StatelessWidget {
       spacing: 8,
       runSpacing: 8,
       children: [
-        Chip(
-          avatar: const Icon(Icons.public, size: 18),
-          label: Text(
-            '${l10n.method}: ${calcMethodLabel(l10n, state.prefs.method)}',
+        Semantics(
+          container: true,
+          label: '${l10n.method}: ${calcMethodLabel(l10n, state.prefs.method)}',
+          child: Chip(
+            avatar: const Icon(Icons.public, size: 18),
+            label: Text(
+              '${l10n.method}: ${calcMethodLabel(l10n, state.prefs.method)}',
+            ),
           ),
         ),
-        Chip(
-          avatar: const Icon(Icons.account_balance, size: 18),
-          label: Text(
-            '${l10n.madhab}: ${madhabLabel(l10n, state.prefs.madhab)}',
+        Semantics(
+          container: true,
+          label: '${l10n.madhab}: ${madhabLabel(l10n, state.prefs.madhab)}',
+          child: Chip(
+            avatar: const Icon(Icons.account_balance, size: 18),
+            label: Text(
+              '${l10n.madhab}: ${madhabLabel(l10n, state.prefs.madhab)}',
+            ),
           ),
         ),
-        Chip(
-          avatar: const Icon(Icons.thermostat, size: 18),
-          label: Text(
-            '${l10n.highLatitude}: ${highLatitudeLabel(l10n, state.prefs.highLatitude)}',
+        Semantics(
+          container: true,
+          label:
+              '${l10n.highLatitude}: ${highLatitudeLabel(l10n, state.prefs.highLatitude)}',
+          child: Chip(
+            avatar: const Icon(Icons.thermostat, size: 18),
+            label: Text(
+              '${l10n.highLatitude}: ${highLatitudeLabel(l10n, state.prefs.highLatitude)}',
+            ),
           ),
         ),
         if (state.locationName != null)
-          Chip(
-            avatar: const Icon(Icons.location_on, size: 18),
-            label: Text('${l10n.location}: ${state.locationName!}'),
+          Semantics(
+            container: true,
+            label: '${l10n.location}: ${state.locationName!}',
+            child: Chip(
+              avatar: const Icon(Icons.location_on, size: 18),
+              label: Text('${l10n.location}: ${state.locationName!}'),
+            ),
           ),
       ],
     );

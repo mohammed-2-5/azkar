@@ -1216,12 +1216,6 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Unknown date'**
   String get unknownDate;
-
-  /// No description provided for @localeName.
-  ///
-  /// In en, this message translates to:
-  /// **'en'**
-  String get localeName;
 }
 
 class _AppLocalizationsDelegate extends LocalizationsDelegate<AppLocalizations> {

@@ -8,6 +8,7 @@ import '../../../../core/i18n/format.dart';
 import '../cubit/prayer_times_state.dart';
 import 'calculation_labels.dart';
 import 'ornament_painter.dart';
+import 'prayer_accessibility.dart';
 
 class PrayerTimesGrid extends StatelessWidget {
   const PrayerTimesGrid({super.key, required this.days});
@@ -77,42 +78,66 @@ class _DayCard extends StatelessWidget {
       context,
       DateFormat('EEE, MMM d', locale).format(day.date),
     );
-    return Container(
-      width: 220,
-      decoration: BoxDecoration(
-        borderRadius: BorderRadius.circular(24),
-        color: Colors.black.withOpacity(0.25),
-        border: Border.all(
-          color: Colors.white.withOpacity(highlight ? 0.35 : 0.15),
+    final l10n = AppLocalizations.of(context)!;
+    final localizedTimes = <String, String>{
+      for (final prayer in PrayerTimesGrid._prayerKeys)
+        localizedPrayerName(l10n, prayer): _entryTimeText(context, day.times[prayer]),
+    };
+    final summaryLabel = buildDailyForecastLabel(
+      l10n,
+      dateLabel: dateLabel,
+      localizedTimes: localizedTimes,
+    );
+    return Semantics(
+      container: true,
+      label: summaryLabel,
+      child: Container(
+        width: 220,
+        decoration: BoxDecoration(
+          borderRadius: BorderRadius.circular(24),
+          color: Colors.black.withOpacity(0.25),
+          border: Border.all(
+            color: Colors.white.withOpacity(highlight ? 0.35 : 0.15),
+          ),
         ),
-      ),
-      child: ClipRRect(
-        borderRadius: BorderRadius.circular(24),
-        child: BackdropFilter(
-          filter: ImageFilter.blur(sigmaX: 14, sigmaY: 14),
-          child: CustomPaint(
-            painter: OrnamentPainter(color: Colors.white.withOpacity(0.12)),
-            child: Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 18),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Text(
-                    dateLabel,
-                    style: Theme.of(context).textTheme.bodyLarge?.copyWith(
-                      fontWeight: FontWeight.w700,
-                      color: Colors.white,
+        child: ClipRRect(
+          borderRadius: BorderRadius.circular(24),
+          child: BackdropFilter(
+            filter: ImageFilter.blur(sigmaX: 14, sigmaY: 14),
+            child: CustomPaint(
+              painter: OrnamentPainter(color: Colors.white.withOpacity(0.12)),
+              child: Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 18),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text(
+                      dateLabel,
+                      style: Theme.of(context).textTheme.bodyLarge?.copyWith(
+                        fontWeight: FontWeight.w700,
+                        color: Colors.white,
+                      ),
+                      maxLines: 1,
+                      overflow: TextOverflow.ellipsis,
                     ),
-                  ),
-                  const SizedBox(height: 16),
-                  for (final prayer in PrayerTimesGrid._prayerKeys)
-                    _PrayerEntry(prayer: prayer, time: day.times[prayer]),
-                ],
+                    const SizedBox(height: 16),
+                    for (final prayer in PrayerTimesGrid._prayerKeys)
+                      _PrayerEntry(prayer: prayer, time: day.times[prayer]),
+                  ],
+                ),
               ),
             ),
           ),
         ),
       ),
+    );
+  }
+
+  String _entryTimeText(BuildContext context, DateTime? time) {
+    if (time == null) return '--:--';
+    return localizedDigits(
+      context,
+      TimeOfDay.fromDateTime(time).format(context),
     );
   }
 }
@@ -126,35 +151,47 @@ class _PrayerEntry extends StatelessWidget {
   Widget build(BuildContext context) {
     final l10n = AppLocalizations.of(context)!;
     final theme = Theme.of(context);
-    return Padding(
-      padding: const EdgeInsets.symmetric(vertical: 6),
-      child: Row(
-        children: [
-          SizedBox(
-            width: 70,
-            child: Text(
-              localizedPrayerName(l10n, prayer),
-              style: theme.textTheme.labelMedium?.copyWith(
-                color: Colors.white.withOpacity(0.85),
-                fontWeight: FontWeight.w600,
-                letterSpacing: 0.4,
+    final timeText = time == null
+        ? '--:--'
+        : localizedDigits(
+            context,
+            TimeOfDay.fromDateTime(time!).format(context),
+          );
+    final semanticsLabel = '${localizedPrayerName(l10n, prayer)} $timeText';
+    return Semantics(
+      label: semanticsLabel,
+      child: Padding(
+        padding: const EdgeInsets.symmetric(vertical: 6),
+        child: Row(
+          children: [
+            SizedBox(
+              width: 80,
+              child: Text(
+                localizedPrayerName(l10n, prayer),
+                style: theme.textTheme.labelMedium?.copyWith(
+                  color: Colors.white.withOpacity(0.85),
+                  fontWeight: FontWeight.w600,
+                  letterSpacing: 0.4,
+                ),
+                maxLines: 1,
+                overflow: TextOverflow.ellipsis,
               ),
             ),
-          ),
-          const Spacer(),
-          Text(
-            time == null
-                ? '--:--'
-                : localizedDigits(
-                    context,
-                    TimeOfDay.fromDateTime(time!).format(context),
-                  ),
-            style: theme.textTheme.labelLarge?.copyWith(
-              color: Colors.white,
-              fontWeight: FontWeight.bold,
+            const SizedBox(width: 8),
+            Expanded(
+              child: Text(
+                timeText,
+                textAlign: TextAlign.right,
+                style: theme.textTheme.labelLarge?.copyWith(
+                  color: Colors.white,
+                  fontWeight: FontWeight.bold,
+                ),
+                maxLines: 1,
+                overflow: TextOverflow.ellipsis,
+              ),
             ),
-          ),
-        ],
+          ],
+        ),
       ),
     );
   }

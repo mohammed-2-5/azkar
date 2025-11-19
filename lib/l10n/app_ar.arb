@@ -140,7 +140,6 @@
     "telemetryEnableDecline": "لاحقًا",
     "telemetryEnabled": "تم تفعيل التشخيصات",
     "telemetryDisabled": "تم إيقاف التشخيصات",
-    "localeName": "ar",
     "appearancePreviewTitle": "معاينة",
     "appearancePreviewBody": "تعرف على شكل العناوين والنصوص مع الإعداد الحالي.",
     "appearanceTelemetryCardTitle": "سجل التشخيص",

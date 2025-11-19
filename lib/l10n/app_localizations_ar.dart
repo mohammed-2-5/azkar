@@ -604,7 +604,4 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get unknownDate => 'تاريخ غير معروف';
-
-  @override
-  String get localeName => 'ar';
 }

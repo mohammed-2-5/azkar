@@ -11,6 +11,7 @@ import 'package:azkar/l10n/app_localizations.dart';
 
 import '../cubit/prayer_times_cubit.dart';
 import '../cubit/prayer_times_state.dart';
+import 'prayer_accessibility.dart';
 
 class LocationBox extends StatelessWidget {
   const LocationBox({super.key, required this.title, this.subtitle});
@@ -61,47 +62,63 @@ class NextPrayerBox extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return _GlassContainer(
-      child: Row(
-        children: [
-          Column(
-               spacing: 10,
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Text(
-                    '$label • $prayerName',
-                    style: Theme.of(context).textTheme.bodySmall?.copyWith(color: Colors.white70),
-                  ),
-                  Text(
-                    timeText,
-                    style: Theme.of(context).textTheme.displaySmall?.copyWith(
-                          color: Colors.white,
-                          fontSize: 14,
-                          fontWeight: FontWeight.bold,
-                        ),
-                  ),
-                ],
-              ),
-
-              Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Text(
-                    remainingLabel,
-                    style: const TextStyle(color: Colors.white70,fontSize: 12),
-                  ),
-                  Text(
-                    remainingText,
-                    style: Theme.of(context).textTheme.titleSmall?.copyWith(color: Colors.white),
-                  ),
-                ],
-              ),
-            ],
-          ),
-        ],
+    final l10n = AppLocalizations.of(context)!;
+    final semanticsLabel = buildPrayerSummaryLabel(
+      l10n,
+      prayerName: prayerName,
+      timeText: timeText,
+      relativeText: remainingText,
+      isNext: true,
+    );
+    return Semantics(
+      container: true,
+      header: true,
+      label: semanticsLabel,
+      child: _GlassContainer(
+        child: Row(
+          children: [
+            Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text(
+                      '$label • $prayerName',
+                      style: Theme.of(context).textTheme.bodySmall?.copyWith(color: Colors.white70),
+                    ),
+                    Text(
+                      timeText,
+                      style: Theme.of(context).textTheme.displaySmall?.copyWith(
+                            color: Colors.white,
+                            fontSize: 14,
+                            fontWeight: FontWeight.bold,
+                          ),
+                      maxLines: 1,
+                      overflow: TextOverflow.ellipsis,
+                    ),
+                  ],
+                ),
+                const SizedBox(height: 12),
+                Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text(
+                      remainingLabel,
+                      style: const TextStyle(color: Colors.white70, fontSize: 12),
+                    ),
+                    Text(
+                      remainingText,
+                      style: Theme.of(context).textTheme.titleSmall?.copyWith(color: Colors.white),
+                      maxLines: 2,
+                      overflow: TextOverflow.ellipsis,
+                    ),
+                  ],
+                ),
+              ],
+            ),
+          ],
+        ),
       ),
     );
   }

@@ -1,6 +1,9 @@
 # Azkar ![App Logo](assets/azkar_logo.png)
 
-Azkar is a cross-platform Flutter companion for daily adhkar, Qur’an reading, curated hadith collections, prayer schedules, Qiblah direction, appearance controls, and diagnostics tooling. The codebase follows a feature-first structure with strong localization and telemetry support.
+
+Azkar is a cross-platform Flutter companion for daily adhkar, Qur�?Tan reading, curated hadith collections, prayer schedules, Qiblah direction, appearance controls, and diagnostics tooling. Built together with **Mohammed Yasser (Junior Flutter Developer)**, the codebase follows a feature-first structure with strong localization and telemetry support.
+
+
 
 ---
 
@@ -88,6 +91,15 @@ The test:
 - Saves PNGs via `ScreenshotController` to `Android/data/com.example.azkar/files/azkar-screenshots`.
 
 Rename the pulled files (e.g., `prayer_times.png`, `qibla.png`) and commit them so the gallery stays up to date.
+
+---
+
+## Testing & QA
+
+- **Automated suite:** `flutter test --reporter=compact` exercises unit tests plus the growing set of widget specs under `test/features/prayer_times/` (settings sheet, header, tiles, forecasts). Run it before every PR to catch regressions in countdowns, localization, and notification flows.
+- **Prayer screen spot-check:** open the app, pull to refresh the Prayer tab, and verify (a) the cached/timezone warnings render when you simulate stale data, (b) the preview grid matches the current locale (Arabic digits in `ar`, Latin in `en`), and (c) the settings sheet saves 24‑hour + notification toggles.
+- **Telemetry opt-in QA:** from Appearance → Diagnostics, toggle telemetry on, trigger a notification action (e.g., snooze test) and confirm the log entry appears in the Telemetry page; toggle it back off and verify logs clear (export a text file if support needs a sample).
+- **Screenshots:** use the integration harness above after major UI tweaks so the gallery stays current; include the captured PNGs in PRs touching the Prayer or Settings surfaces.
 
 ---
 

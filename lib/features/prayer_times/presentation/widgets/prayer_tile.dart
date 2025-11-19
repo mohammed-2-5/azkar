@@ -1,4 +1,7 @@
+import 'package:azkar/l10n/app_localizations.dart';
 import 'package:flutter/material.dart';
+
+import 'prayer_accessibility.dart';
 
 class PrayerTile extends StatelessWidget {
   const PrayerTile({
@@ -26,54 +29,67 @@ class PrayerTile extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final l10n = AppLocalizations.of(context)!;
+    final semanticsLabel = buildPrayerSummaryLabel(
+      l10n,
+      prayerName: name,
+      timeText: timeText,
+      relativeText: relativeText,
+      isNext: isNext,
+    );
     final accent = colors.isNotEmpty ? colors.first : const Color(0xFF6F4E37);
     final ornamentColor = accent.withOpacity(0.5);
     final padding = compact ? const EdgeInsets.all(12) : const EdgeInsets.all(16);
 
-    return AspectRatio(
-      aspectRatio: compact ? 2.4 : 2.0,
-      child: GestureDetector(
-        onTap: onTap,
-        child: ClipRRect(
-          borderRadius: BorderRadius.circular(24),
-          child: DecoratedBox(
-            decoration: BoxDecoration(
-              gradient: const LinearGradient(
-                colors: [
-                  Color(0xFFFDF5EC),
-                  Color(0xFFF1E2CE),
-                ],
-                begin: Alignment.topLeft,
-                end: Alignment.bottomRight,
-              ),
-              border: Border.all(color: accent.withOpacity(0.2)),
-              boxShadow: [
-                if (isNext)
-                  BoxShadow(
-                    color: accent.withOpacity(0.3),
-                    blurRadius: 16,
-                    offset: const Offset(0, 10),
-                  ),
-              ],
-            ),
-            child: CustomPaint(
-              painter: _MosqueFramePainter(color: ornamentColor),
-              child: Padding(
-                padding: padding,
-                child: Row(
-                  children: [
-                    _MiniMinaret(icon: icon, accent: accent, next: isNext),
-                    const SizedBox(width: 12),
-                    Expanded(
-                      child: _PrayerInfo(
-                        name: name,
-                        timeText: timeText,
-                        relativeText: relativeText,
-                        trailing: trailing,
-                        compact: compact,
-                      ),
-                    ),
+    return Semantics(
+      container: true,
+      button: onTap != null,
+      label: semanticsLabel,
+      child: AspectRatio(
+        aspectRatio: compact ? 2.4 : 2.0,
+        child: GestureDetector(
+          onTap: onTap,
+          child: ClipRRect(
+            borderRadius: BorderRadius.circular(24),
+            child: DecoratedBox(
+              decoration: BoxDecoration(
+                gradient: const LinearGradient(
+                  colors: [
+                    Color(0xFFFDF5EC),
+                    Color(0xFFF1E2CE),
                   ],
+                  begin: Alignment.topLeft,
+                  end: Alignment.bottomRight,
+                ),
+                border: Border.all(color: accent.withOpacity(0.2)),
+                boxShadow: [
+                  if (isNext)
+                    BoxShadow(
+                      color: accent.withOpacity(0.3),
+                      blurRadius: 16,
+                      offset: const Offset(0, 10),
+                    ),
+                ],
+              ),
+              child: CustomPaint(
+                painter: _MosqueFramePainter(color: ornamentColor),
+                child: Padding(
+                  padding: padding,
+                  child: Row(
+                    children: [
+                      _MiniMinaret(icon: icon, accent: accent, next: isNext),
+                      const SizedBox(width: 12),
+                      Expanded(
+                        child: _PrayerInfo(
+                          name: name,
+                          timeText: timeText,
+                          relativeText: relativeText,
+                          trailing: trailing,
+                          compact: compact,
+                        ),
+                      ),
+                    ],
+                  ),
                 ),
               ),
             ),
@@ -122,6 +138,8 @@ class _PrayerInfo extends StatelessWidget {
             fontWeight: FontWeight.w600,
             fontSize: compact ? 18 : 20,
           ),
+          maxLines: 1,
+          overflow: TextOverflow.ellipsis,
         ),
         const SizedBox(height: 2),
         Row(
@@ -132,6 +150,8 @@ class _PrayerInfo extends StatelessWidget {
               child: Text(
                 relativeText,
                 style: theme.textTheme.labelSmall?.copyWith(color: Colors.brown.withOpacity(0.7)),
+                maxLines: 2,
+                overflow: TextOverflow.ellipsis,
               ),
             ),
             if (trailing != null) trailing!,

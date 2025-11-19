@@ -109,28 +109,35 @@ class _WarningCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Card(
-      color: Colors.orange.withOpacity(0.15),
-      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(16)),
-      child: Padding(
-        padding: const EdgeInsets.all(16),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            const Icon(Icons.warning_amber_rounded, color: Colors.orange),
-            const SizedBox(height: 8),
-            for (final msg in messages)
-              Padding(
-                padding: const EdgeInsets.only(bottom: 6),
-                child: Text(
-                  msg,
-                  style: Theme.of(context)
-                      .textTheme
-                      .bodyMedium
-                      ?.copyWith(color: Colors.orange.shade200),
+    final semanticsLabel =
+        messages.isNotEmpty ? messages.join('. ') : null;
+    final fallback = AppLocalizations.of(context)?.timezoneWarning ?? 'Warning';
+    return Semantics(
+      container: true,
+      label: semanticsLabel ?? fallback,
+      child: Card(
+        color: Colors.orange.withOpacity(0.15),
+        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(16)),
+        child: Padding(
+          padding: const EdgeInsets.all(16),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              const Icon(Icons.warning_amber_rounded, color: Colors.orange),
+              const SizedBox(height: 8),
+              for (final msg in messages)
+                Padding(
+                  padding: const EdgeInsets.only(bottom: 6),
+                  child: Text(
+                    msg,
+                    style: Theme.of(context)
+                        .textTheme
+                        .bodyMedium
+                        ?.copyWith(color: Colors.orange.shade200),
+                  ),
                 ),
-              ),
-          ],
+            ],
+          ),
         ),
       ),
     );

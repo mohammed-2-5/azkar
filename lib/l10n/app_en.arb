@@ -185,6 +185,5 @@
     "snoozeScheduled": "Reminder snoozed for {minutes} minutes.",
     "snoozeUnavailable": "Snooze isn't available for this prayer.",
     "timezoneWarning": "Device timezone differs from the calculation timezone. Check Settings.",
-    "unknownDate": "Unknown date",
-    "localeName": "en"
+    "unknownDate": "Unknown date"
 }
