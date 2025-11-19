@@ -70,6 +70,25 @@ See `AGENTS.md` and `docs/ROADMAP.md` for conventions and upcoming milestones.
 
 ---
 
+## Automated screenshots
+
+A simple integration test in `integration_test/screenshot_test.dart` renders the main tabs and saves PNGs under `assets/screenshots/`.
+
+```bash
+# Specify a device (desktop/web/emulator) to generate screenshots
+flutter test integration_test/screenshot_test.dart -d windows
+```
+
+The test:
+- Mocks the location onboarding flag so the app skips the permission gate
+- Pumps the real `AzkarRoot` widget inside a `Screenshot` controller
+- Navigates the bottom navigation bar (Prayer → Qiblah → Qur’an → Azkar)
+- Writes PNG files (e.g., `assets/screenshots/prayer_home.png`)
+
+Commit the updated PNGs to keep documentation/demo assets current.
+
+---
+
 ## CI/CD
 GitHub Actions (`.github/workflows/flutter-ci.yml`) runs on every push/PR to `main`:
 1. Checkout & install Flutter (stable channel, cached).
@@ -92,3 +111,4 @@ Only merge changes once the workflow passes.
 Telemetry is opt-in; respect user privacy by never collecting PII or uploading logs automatically.
 
 Happy building!
+\n## Automated screenshots (WIP)\n
